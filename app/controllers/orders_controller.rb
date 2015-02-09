@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(params[:order])
 	@order.add_lineitems_from_cart(current_cart)
-	@order.customer_id = @current_customer
+	@order.customer_id = @current_customer.id
 
     respond_to do |format|
       if @order.save

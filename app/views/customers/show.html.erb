@@ -13,17 +13,16 @@
   <b>Address:</b>
   <%= @customer.address %>
 </p>
-
-
-
-<p>
-  <b>Latitude:</b>
-  <%= @customer.latitude %>
-</p>
-
-<p>
-  <b>Longitude:</b>
-  <%= @customer.longitude %>
-</p>
+<h1>Orders</h1>
+<% @orders.each do |o| %>
+	<p>ID: <%= o.id %><br></p>
+	<p>Paymethod: <%= o.paymethod %></p>
+	<% o.lineitems.each do |lineitem| %>
+		<%= lineitem.product.title %>
+		<%= lineitem.quantity %>
+		
+	<%end%>
+	<hr>
+<%end%>
 
 
