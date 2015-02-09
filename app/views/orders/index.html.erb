@@ -12,7 +12,7 @@
 
 <% @orders.each do |order| %>
   <tr>
-    <td><%= order.customer_id %></td>
+    <td><%= link_to order.customer.name, order.customer %></td>
     <td><%= order.paymethod %></td>
     <td><%= order.total %></td>
     <td><%= link_to 'Show', order %></td>

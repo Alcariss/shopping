@@ -2,7 +2,7 @@
 
 <p>
   <b>Customer:</b>
-  <%= @order.customer_id %>
+  <%= link_to @order.customer.name, @order.customer %>
 </p>
 
 <p>
@@ -10,11 +10,15 @@
   <%= @order.paymethod %>
 </p>
 
-<p>
-  <b>Total:</b>
-  <%= @order.total %>
-</p>
-
-
+<h2>Lineitems</h2>
+<table>
+	<% @order.lineitems.each do |item| %>
+	<tr>
+		<td><%= item.quantity %></td>
+		<td><%= item.product.title %></td>
+	</tr>
+	<%end%>
+</table>
+<br><hr>
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
