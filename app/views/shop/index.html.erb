@@ -1,0 +1,14 @@
+<h1>Products for Sale</h1>
+<% if !@products.empty? %>
+	<% @products.each do |product| %>
+		<%= image_tag(product.poster, :size => "50x50") %>
+		<h3><%= product.title %></h3>
+		<%= sanitize(product.description) %>
+		<%= euro(product.price) %>
+		<%= button_to 'Add to Cart', lineitems_path(product_id: product) %>
+		<br><hr><br>
+	<% end %>
+<% else %>
+	<h1> There are no products </h1>
+<% end %>
+
