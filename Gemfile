@@ -7,6 +7,8 @@ gem 'rails', '3.2.1'
 
 gem 'sqlite3'
 
+gem 'geocoder'
+
 gem 'coffee-script-source', '1.8.0'
 
 # Gems used only for assets and not required
@@ -22,7 +24,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'geocoder'
+
 # To use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'
 

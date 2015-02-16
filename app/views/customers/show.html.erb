@@ -13,6 +13,9 @@
   <b>Address:</b>
   <%= @customer.address %>
 </p>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@customer.latitude}%2C#{@customer.longitude}" %>
+
 <h1>Orders</h1>
 <% @orders.each do |o| %>
 	<p>ID: <%= o.id %><br></p>

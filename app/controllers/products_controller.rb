@@ -1,6 +1,16 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
+  def search
+	@products = Product.search params [:q]
+	unless @products.empty?
+		render 'index'
+	else
+		flash[:notice] = 'No movie matches that search'
+		render 'index'
+	end
+  end
+  
   def index
     @products = Product.all
 
