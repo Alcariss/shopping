@@ -4,6 +4,8 @@ Shopping::Application.routes.draw do
   
   match '/shiporder', :to => 'orders#shiporder'
   
+  match '/shipped', :to => 'orders#shippedorders'
+  
   get "sessions/new"
 
   get "sessions/create"

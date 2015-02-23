@@ -23,7 +23,9 @@
 		<td><%= item.product.title %></td>
 	</tr>
 	<%end%>
+	<br>Total price <%= euro(@order.lineitems.inject(0) { |sum, p| sum + p.product.price})%>
+	
 </table>
 <br><hr>
 <%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Back', shipped_path %>

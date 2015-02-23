@@ -61,12 +61,20 @@ class OrdersController < ApplicationController
   end
   
   def shiporder
-	@order = Order.find(params[:id]) #najde order podle id
+	@order = Order.find(params[:id]) #najde order podle id z indexu
 	Order.shiporder(@order) #u toho co to naslo to udela model method shiporder s formal parametrem @order
 	@order.save
 	
 	respond_to do |format|
 		format.html { redirect_to @order, notice: 'Order was shipped.' }
+	end
+  end
+  
+  def shippedorders
+	@shipped = Order.where(:shipped => false)
+	
+	respond_to do |format|
+		format.html 
 	end
   end
 
