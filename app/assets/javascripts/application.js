@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require_tree .
 
- $('#datepicker').datepicker({
+ $("#datepicker").datepicker({
 	dateFormat: 'dd-mm-yy',
 	changeMonth: true,
 	changeYear: true,

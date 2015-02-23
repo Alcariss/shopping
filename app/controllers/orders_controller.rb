@@ -59,6 +59,16 @@ class OrdersController < ApplicationController
         end
     end
   end
+  
+  def shiporder
+	@order = Order.find(params[:id]) #najde order podle id
+	Order.shiporder(@order) #u toho co to naslo to udela model method shiporder s formal parametrem @order
+	@order.save
+	
+	respond_to do |format|
+		format.html { redirect_to @order, notice: 'Order was shipped.' }
+	end
+  end
 
   # PUT /orders/1
   # PUT /orders/1.json

@@ -10,6 +10,11 @@
   <%= @order.paymethod %>
 </p>
 
+<p>
+  <b>Shipped:</b>
+  <%= @order.shipped %>
+</p>
+
 <h2>Lineitems</h2>
 <table>
 	<% @order.lineitems.each do |item| %>

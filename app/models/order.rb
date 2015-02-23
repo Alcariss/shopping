@@ -9,4 +9,8 @@ class Order < ActiveRecord::Base
 			lineitems << item
 		end
 	end
+	
+	def self.shiporder(order)
+		order.shipped = true
+	end
 end
