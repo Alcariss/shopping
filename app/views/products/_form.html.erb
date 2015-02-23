@@ -25,11 +25,15 @@
   </div>
   <div class="field">
     <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    <%= f.text_field :price, id: :datepicker %>
   </div>
   <div class="field">
-    <%= f.label :quzntity %><br />
-    <%= f.number_field :quzntity %>
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br />
+    <%= f.text_field :created_at, id: :datepicker %>
   </div>
   <div class="actions">
     <%= f.submit %>
