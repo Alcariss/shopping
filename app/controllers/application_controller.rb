@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   
   include ApplicationHelper
   
+  before_filter :current_cart
+  
   def authorise
         unless signed_in?
            store_location
@@ -17,12 +19,12 @@ class ApplicationController < ActionController::Base
    end
    
    def current_cart
-	cart = Cart.find_by_id(session[:cart_id])
-	if cart.nil?
-		cart = Cart.create
+	@cart = Cart.find_by_id(session[:cart_id])
+	if @cart.nil?
+		@cart = Cart.create
 		session[:cart_id] = cart.id
 	end
-	cart
+	@cart
    end
 
 

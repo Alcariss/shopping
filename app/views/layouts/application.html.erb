@@ -7,20 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% flash.each do |key, value| %>   
-       <div class="flash <%= key %>">
-		<%= value %>
-	</div>
- <% end %>
-
-
 <% if !signed_in? %>
 		<li><%= link_to "Sign In", signin_path %></li>		
 	<% else %>
 		<li>Signed in as <%= @current_customer.name %></li>
 		<li><%= link_to "Sign Out", signout_path %></li>
-	<% end %>
-<%= yield %>
+<% end %>
 
+<% flash.each do |key, value| %>   
+       <div class="flash <%= key %>">
+		<%= value %>
+	</div>
+ <% end %>
+ 
+<div id="columns">
+	<div id="side">
+		<div id="cart">
+		<% if @cart %>
+			<%= render @cart %>
+		<% end %>
+		</div>
+	</div>
+<div id="main">
+<%= yield %>
+</div>
+</div>
 </body>
 </html>
